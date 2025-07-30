@@ -1,19 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>  
+<head>
   <meta charset="UTF-8">
-    <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('SW registrado:', reg.scope))
-          .catch(err => console.error('SW error:', err));
-      });
+  <title>Feliz Cumple Sofía</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #2c003e, #1a1a1a);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
-  </script>
-  <title>Hola   Mundo</title>
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5em;
+      color: #ffc0cb;
+    }
+
+    .button-container {
+      margin-top: 40px;
+    }
+
+    button {
+      margin: 15px;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 30px;
+      background-color: #ff69b4;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e75480;
+      transform: scale(1.1);
+    }
+
+    .gallery {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: auto;
+      margin: 10px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .final-message {
+      margin-top: 50px;
+      font-size: 1.3em;
+      color: #ffd;
+      display: none;
+      padding: 0 20px;
+    }
+
+    /* Fuegos artificiales (sencillos) */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://i.imgur.com/DEuH4uD.gif') center/cover no-repeat;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hola Mundo</h1>
+
+<h1>🌟 Feliz Cumpleaños Sofía 🌟</h1>
+
+<div class="button-container">
+  <button onclick="mostrar('momentos')">Algunos de nuestros momentos</button>
+  <button onclick="mostrar('cena')">Tu cena</button>
+  <button onclick="mostrar('regalo')">Tu regalo</button>
+</div>
+
+<div id="momentos" class="gallery">
+  <h2>💖 Nuestros Momentos 💖</h2>
+  <img src="tufoto1.jpg" alt="Momento 1">
+  <img src="tufoto2.jpg" alt="Momento 2">
+  <!-- Agregá más imágenes -->
+</div>
+
+<div id="cena" class="gallery">
+  <h2>🍽️ Tu Cena 🍽️</h2>
+  <img src="lugar1.jpg" alt="Lugar 1">
+  <img src="lugar2.jpg" alt="Lugar 2">
+</div>
+
+<div id="regalo" class="gallery">
+  <h2>🎁 Tu Regalo 🎁</h2>
+  <img src="regalo1.jpg" alt="Regalo 1">
+  <img src="regalo2.jpg" alt="Regalo 2">
+  <div class="final-message">
+    <p>
+      “Te amo con un amor que viene de Dios. Porque Él es quien nos unió, 
+      nos guía y nos sostiene. Cada detalle que ves aquí es solo una pequeña muestra 
+      de lo grande que es mi amor por vos. Y sé que con Él en el centro, nuestro amor 
+      solo crecerá más hermoso. Feliz vida, mi morena hermosa. 💛”
+    </p>
+  </div>
+</div>
+
+<script>
+  function mostrar(id) {
+    let galleries = document.querySelectorAll('.gallery');
+    galleries.forEach(g => g.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+
+    if (id === 'regalo') {
+      document.querySelector('.final-message').style.display = 'block';
+    } else {
+      document.querySelector('.final-message').style.display = 'none';
+    }
+  }
+</script>
+
 </body>
 </html>
