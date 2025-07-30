@@ -42,9 +42,15 @@
     }
 
     .gallery {
-      display: none;
-      margin-top: 30px;
-    }
+  display: none;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  gap: 15px;
+  padding: 0 20px;
+}
+
 
     .gallery img {
       width: 200px;
